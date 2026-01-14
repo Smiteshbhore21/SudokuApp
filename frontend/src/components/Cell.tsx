@@ -20,7 +20,7 @@ export default function Cell({
     const thickBottom = (row + 1) % 3 === 0 && row !== 8;
 
     const borderColor = hasError ? "red" : "#333";
-    const border3by3 = "#6e6e6e";
+    const border3by3 = hasError ? "red" : "#6e6e6e";
 
     return (
         <input
