@@ -7,16 +7,26 @@ interface Props {
     onChange: (val: number) => void;
 }
 
-export default function Cell({ value, row, col, fixed, hasError, onChange }: Props) {
+export default function Cell({
+    value,
+    row,
+    col,
+    fixed,
+    hasError,
+    onChange,
+}: Props) {
 
     const thickRight = (col + 1) % 3 === 0 && col !== 8;
     const thickBottom = (row + 1) % 3 === 0 && row !== 8;
+
+    const borderColor = hasError ? "red" : "#333";
 
     return (
         <input
             type="text"
             value={value === 0 ? "" : value}
             maxLength={1}
+            disabled={fixed}
             onChange={(e) => {
                 const v = Number(e.target.value);
                 if (v >= 1 && v <= 9) onChange(v);
@@ -28,9 +38,15 @@ export default function Cell({ value, row, col, fixed, hasError, onChange }: Pro
                 height: "48px",
                 fontSize: "1.1rem",
                 fontWeight: fixed ? "bold" : "normal",
-                borderRight: thickRight ? "3px solid gray" : "1px solid #ccc",
-                borderBottom: thickBottom ? "3px solid gray" : "1px solid #ccc",
-                border: hasError ? "2px solid red" : "1px solid #333"
+
+                borderTop: row === 0 ? `3px solid ${borderColor}` : `1px solid ${borderColor}`,
+                borderLeft: col === 0 ? `3px solid ${borderColor}` : `1px solid ${borderColor}`,
+                borderRight: thickRight
+                    ? `3px solid ${borderColor}`
+                    : `1px solid ${borderColor}`,
+                borderBottom: thickBottom
+                    ? `3px solid ${borderColor}`
+                    : `1px solid ${borderColor}`,
             }}
         />
     );
