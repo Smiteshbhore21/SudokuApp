@@ -35,11 +35,10 @@ export default function Cell({
             }}
             className="form-control text-center fw-semibold"
             style={{
-                width: "48px",
-                height: "48px",
-                fontSize: "1.1rem",
+                width: "100%",
+                height: "100%",
+                fontSize: "clamp(1rem, 3vw, 1.3rem)",
                 fontWeight: fixed ? "bold" : "normal",
-
                 borderTop: row === 0 ? `1px solid ${borderColor}` : `1px solid ${borderColor}`,
                 borderLeft: col === 0 ? `1px solid ${borderColor}` : `1px solid ${borderColor}`,
                 borderRight: thickRight

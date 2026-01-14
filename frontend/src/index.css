@@ -1,5 +1,8 @@
+html,
 body {
     font-family: system-ui, Arial, sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 input.form-control:focus {

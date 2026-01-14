@@ -19,27 +19,30 @@ export default function SudokuGrid({ board, initialBoard, setBoard }: Props) {
     }
 
     return (
-        <div
-            className="mx-auto border border-dark"
-            style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(9, 48px)",
-                width: "fit-content",
-            }}
-        >
-            {board.map((row, r) =>
-                row.map((value, c) => (
-                    <Cell
-                        key={`${r}-${c}`}
-                        value={value}
-                        row={r}
-                        col={c}
-                        fixed={initialBoard[r][c] !== 0}
-                        hasError={hasConflict(board, r, c, value)}
-                        onChange={(val) => updateCell(r, c, val)}
-                    />
-                ))
-            )}
+        <div className="d-flex justify-content-center">
+            <div
+                className="mx-auto border border-dark"
+                style={{
+                    display: "grid",
+                    gridTemplateColumns: "repeat(9, 1fr)",
+                    width: "min(90vw, 420px)",
+                    aspectRatio: "1 / 1",
+                }}
+            >
+                {board.map((row, r) =>
+                    row.map((value, c) => (
+                        <Cell
+                            key={`${r}-${c}`}
+                            value={value}
+                            row={r}
+                            col={c}
+                            fixed={initialBoard[r][c] !== 0}
+                            hasError={hasConflict(board, r, c, value)}
+                            onChange={(val) => updateCell(r, c, val)}
+                        />
+                    ))
+                )}
+            </div>
         </div>
     );
 

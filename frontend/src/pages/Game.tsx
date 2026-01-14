@@ -49,7 +49,7 @@ export default function Game() {
     };
 
     return (
-        <div className="container py-4 text-center">
+        <div className="container-fluid py-3 text-center px-2">
             <h1 className="mb-4 fw-bold">🧩 Sudoku</h1>
 
             <Controls
