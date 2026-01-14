@@ -1,6 +1,6 @@
 import type { HintResponse, SolveResponse, Board } from "../types/Sudoku";
 
-const BASE_URL = "http://localhost:8000/api/sudoku";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 export async function fetchNewGame(difficulty: string): Promise<Board> {
     const res = await fetch(`${BASE_URL}/new?difficulty=${difficulty}`);
