@@ -20,6 +20,7 @@ export default function Cell({
     const thickBottom = (row + 1) % 3 === 0 && row !== 8;
 
     const borderColor = hasError ? "red" : "#333";
+    const border3by3 = "#6e6e6e";
 
     return (
         <input
@@ -39,13 +40,13 @@ export default function Cell({
                 fontSize: "1.1rem",
                 fontWeight: fixed ? "bold" : "normal",
 
-                borderTop: row === 0 ? `3px solid ${borderColor}` : `1px solid ${borderColor}`,
-                borderLeft: col === 0 ? `3px solid ${borderColor}` : `1px solid ${borderColor}`,
+                borderTop: row === 0 ? `1px solid ${borderColor}` : `1px solid ${borderColor}`,
+                borderLeft: col === 0 ? `1px solid ${borderColor}` : `1px solid ${borderColor}`,
                 borderRight: thickRight
-                    ? `3px solid ${borderColor}`
+                    ? `3px solid ${border3by3}`
                     : `1px solid ${borderColor}`,
                 borderBottom: thickBottom
-                    ? `3px solid ${borderColor}`
+                    ? `3px solid ${border3by3}`
                     : `1px solid ${borderColor}`,
             }}
         />
