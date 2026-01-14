@@ -1,0 +1,7 @@
+body {
+    font-family: system-ui, Arial, sans-serif;
+}
+
+input.form-control:focus {
+    box-shadow: none;
+}
